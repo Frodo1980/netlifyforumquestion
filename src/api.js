@@ -1,8 +1,5 @@
 const express = require("express");
 const XlsxPopulate = require("xlsx-populate");
-
-const serverless = require("serverless-http");
-
 const app = express();
 const router = express.Router();
 
@@ -31,13 +28,9 @@ router.get("/", (req, res) => {
       // Send the workbook.
       res.send(data);
     });
-
-  // http://localhost:3000/.netlify/functions/api?A13=TextForCellA13&B15=ThisGoesToB15
 });
 
 app.use("/.netlify/functions/api", router);
-
-// module.exports.handler = serverless(app);
 
 app.listen(port, () => {
   console.log(
