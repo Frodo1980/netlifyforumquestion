@@ -4,13 +4,13 @@
   "description": "Server zur Bereitstellung der individuell erstellten Versionen des Excel-Tools zur Archivierung in der eAkte",
   "main": "api.js",
   "scripts": {
-    "start": "node ./src/api.js"
+    "start": "netlify dev"
   },
   "author": "Michael Lüssem",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3",
+    "serverless-http": "^3.0.1",
     "xlsx-populate": "^1.21.0"
   }
 }
-
