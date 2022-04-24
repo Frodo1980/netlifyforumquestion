@@ -16,4 +16,13 @@ expected behavior: you get a xlsx.-file with all of the content your given xlsx.
 
 It works! 😀
 
-##
+## Test lambda-function which should do the same
+
+Calling the `npm run start` runs a development-server. After starting the server you see in the console the adress where you can reach the server.
+
+Call this adress and put the adress to call the function (/.netlify/functions/api?A2=test&A13=Hello) after the server-adress:
+
+You will get a corrupted xlsx.-file which cannot be opened.
+
+But why? Where is the difference between the express-server alone and the lambda-function which should do the same?
+
