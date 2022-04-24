@@ -1,0 +1,11 @@
+[build]
+
+functions = "functions"
+
+[dev]
+framework="#static"
+functions = "functions"
+
+
+  # Includes all XLSX files inside the "files/" directory.
+  included_files = ["**.xlsX"]

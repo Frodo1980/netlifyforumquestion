@@ -1,0 +1,16 @@
+{
+  "name": "serverpktool",
+  "version": "1.0.0",
+  "description": "Server zur Bereitstellung der individuell erstellten Versionen des Excel-Tools zur Archivierung in der eAkte",
+  "main": "api.js",
+  "scripts": {
+    "start": "node ./src/api.js"
+  },
+  "author": "Michael Lüssem",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "xlsx-populate": "^1.21.0"
+  }
+}
+
