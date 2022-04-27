@@ -8,4 +8,4 @@ functions = "functions"
 
 
   # Includes all XLSX files inside the "files/" directory.
-  included_files = ["**.xlsX"]
+  included_files = ["**.xlsx"]
