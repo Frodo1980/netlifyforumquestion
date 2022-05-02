@@ -9,6 +9,7 @@ app.use(cors());
 app.options("*", cors());
 
 router.get("/", (req, res) => {
+  console.log(req);
   // Load an existing workbook
   XlsxPopulate.fromFileAsync("ExcelBlanko.xlsx")
     .then((workbook) => {
