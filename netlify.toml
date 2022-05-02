@@ -8,3 +8,4 @@ framework="#static"
   # Sets a custom directory for Netlify Functions
   directory = "functions"
   included_files = ["file_example.xlsx"]
+  external_node_modules = ["express","xlsx-populate","serverless-http"]
