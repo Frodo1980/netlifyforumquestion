@@ -1,13 +1,10 @@
 [build]
-
-functions = "functions"
-included_files = ["file_example.xlsx"]
-
-  [functions.api] 
-  # Includes all XLSX files inside the "files/" directory.
-  included_files = ["file_example.xlsx"]
+framework="#static"
 
 [dev]
 framework="#static"
-functions = "functions"
 
+[functions]
+  # Sets a custom directory for Netlify Functions
+  directory = "functions"
+  included_files = ["file_example.xlsx"]
