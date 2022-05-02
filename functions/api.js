@@ -10,11 +10,21 @@ app.options("*", cors());
 
 router.get("/", (req, res) => {
   // Load an existing workbook
-  XlsxPopulate.fromFileAsync("file_example.xlsx")
+  XlsxPopulate.fromFileAsync("ExcelBlanko.xlsx")
     .then((workbook) => {
-      const worksheet = workbook.sheet("Sheet1");
+      const worksheet = workbook.sheet("Kalkulationstool");
 
       const params = req.query;
+
+      //repair types
+      (params.D7 = parseInt(params.D7)),
+        (params.D8 = parseInt(params.D8)),
+        (params.D9 = parseInt(params.D9)),
+        (params.D10 = parseFloat(params.D10)),
+        (params.D11 = parseFloat(params.D11)),
+        (params.D12 = parseFloat(params.D12)),
+        (params.D14 = parseInt(params.D14));
+
       console.table(params);
 
       // Modify the workbook.
@@ -25,10 +35,7 @@ router.get("/", (req, res) => {
       return workbook.outputAsync("base64");
     })
     .then((data) => {
-      // Set the output file name.
-      //  res.attachment("output.xlsx");
-
-      // Send the workbook.
+      // Send the workbook as base64-string
       res.send(data);
     });
 });

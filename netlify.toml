@@ -1,5 +1,5 @@
 [functions]
   # Sets a custom directory for Netlify Functions
   directory = "functions"
-  included_files = ["file_example.xlsx"]
+  included_files = ["ExcelBlanko.xlsx"]
   external_node_modules = ["express","xlsx-populate","serverless-http","cors"]
