@@ -1,12 +1,13 @@
 [build]
 
 functions = "functions"
-included_files = ["**.xlsx"]
+included_files = ["file_example.xlsx"]
+
+  [functions.api] 
+  # Includes all XLSX files inside the "files/" directory.
+  included_files = ["file_example.xlsx"]
 
 [dev]
 framework="#static"
 functions = "functions"
 
-
-  # Includes all XLSX files inside the "files/" directory.
-  included_files = ["**.xlsx"]

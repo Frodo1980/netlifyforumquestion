@@ -1,5 +1,6 @@
 const express = require("express");
 const XlsxPopulate = require("xlsx-populate");
+const file = require("file_example.xlsx");
 
 const serverless = require("serverless-http");
 
@@ -8,7 +9,7 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   // Load an existing workbook
-  XlsxPopulate.fromFileAsync("file_example.xlsx")
+  XlsxPopulate.fromFileAsync(file)
     .then((workbook) => {
       const worksheet = workbook.sheet("Sheet1");
 
