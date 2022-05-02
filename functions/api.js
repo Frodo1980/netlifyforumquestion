@@ -18,13 +18,19 @@ router.get("/", (req, res) => {
       const params = req.query;
 
       //repair types
-      (params.D7 = parseInt(params.D7)),
-        (params.D8 = parseInt(params.D8)),
-        (params.D9 = parseInt(params.D9)),
-        (params.D10 = parseFloat(params.D10)),
-        (params.D11 = parseFloat(params.D11)),
-        (params.D12 = parseFloat(params.D12)),
-        (params.D14 = parseInt(params.D14));
+      params.D7 = parseFloat(params.D7);
+      params.D8 = parseInt(params.D8);
+      params.D9 = parseInt(params.D9);
+      params.D10 = parseFloat(params.D10);
+
+      if (params.D11) {
+        params.D11 = parseFloat(params.D11);
+      }
+      if (params.D12) {
+        params.D12 = parseFloat(params.D12);
+      }
+
+      params.D14 = parseInt(params.D14);
 
       console.table(params);
 
