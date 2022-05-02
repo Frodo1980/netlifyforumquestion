@@ -1,6 +1,5 @@
 const express = require("express");
 const XlsxPopulate = require("xlsx-populate");
-const file = require("file_example.xlsx");
 
 const serverless = require("serverless-http");
 
