@@ -1,9 +1,3 @@
-[build]
-framework="#static"
-
-[dev]
-framework="#static"
-
 [functions]
   # Sets a custom directory for Netlify Functions
   directory = "functions"
