@@ -1,6 +1,7 @@
 [build]
 
 functions = "functions"
+included_files = ["**.xlsx"]
 
 [dev]
 framework="#static"
