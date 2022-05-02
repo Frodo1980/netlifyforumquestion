@@ -25,9 +25,13 @@ router.get("/", (req, res) => {
 
       if (params.D11) {
         params.D11 = parseFloat(params.D11);
+      } else {
+        params.D11 = 0;
       }
       if (params.D12) {
         params.D12 = parseFloat(params.D12);
+      } else {
+        params.D12 = 0;
       }
 
       params.D14 = parseInt(params.D14);
