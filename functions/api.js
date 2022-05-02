@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   // Load an existing workbook
-  XlsxPopulate.fromFileAsync(file)
+  XlsxPopulate.fromFileAsync("file-example.xlsx")
     .then((workbook) => {
       const worksheet = workbook.sheet("Sheet1");
 
