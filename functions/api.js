@@ -5,24 +5,29 @@ const serverless = require("serverless-http");
 
 const app = express();
 const router = express.Router();
+
+//CORS im Express-Server einrichten
 app.use(cors());
 app.options("*", cors());
 
 router.get("/", (req, res) => {
-  console.log(req);
   // Load an existing workbook
   XlsxPopulate.fromFileAsync("ExcelBlanko.xlsx")
     .then((workbook) => {
-      const worksheet = workbook.sheet("Kalkulationstool");
+      //Nur ausführen, wenn "Passwort" korrekt
+      //TODO Hier evtl. mal eine vernünftige Sicherheitslösung implementieren
+
+      const kalkulationstool = workbook.sheet("Kalkulationstool");
+      const wertbeitrag = workbook.sheet("Wertbeitrag");
+      const bewertungAufstockung = workbook.sheet("Bewertung Aufstockung");
 
       const params = req.query;
 
-      //repair types
+      //Datentypen anpassen
       params.D7 = parseFloat(params.D7);
       params.D8 = parseInt(params.D8);
       params.D9 = parseInt(params.D9);
       params.D10 = parseFloat(params.D10);
-
       if (params.D11) {
         params.D11 = parseFloat(params.D11);
       } else {
@@ -33,14 +38,27 @@ router.get("/", (req, res) => {
       } else {
         params.D12 = 0;
       }
-
       params.D14 = parseInt(params.D14);
 
       console.table(params);
 
-      // Modify the workbook.
+      // Arbeitsblatt anpassen
       Object.keys(params).map((key, index) => {
-        worksheet.cell(key).value(Object.values(params)[index]);
+        // der Parameter "key" dient nur als Voraussetzung zum Ausführen der Funktion
+        if (key != "key") {
+          // Alle auf dem Tabellenblatt "Kalkulationstool" zu ändernden Zellen befinden sich in Spalte "D"
+          if (key.charAt(0) === "D") {
+            kalkulationstool.cell(key).value(Object.values(params)[index]);
+          }
+          // Alle auf dem Tabellenblatt "Wertbeitrag" zu ändernden Zellen befinden sich in Spalte "C"
+          if (key.charAt(0) === "C") {
+            wertbeitrag.cell(key).value(Object.values(params)[index]);
+          }
+          // Alle auf dem Tabellenblatt "Bewertung Aufstockung" zu ändernden Zellen befinden sich in Spalte "B"
+          if (key.charAt(0) === "B") {
+            wertbeitrag.cell(key).value(Object.values(params)[index]);
+          }
+        }
       });
 
       return workbook.outputAsync("base64");
