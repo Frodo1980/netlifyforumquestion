@@ -28,6 +28,7 @@ router.get("/", (req, res) => {
       params.D8 = parseInt(params.D8);
       params.D9 = parseInt(params.D9);
       params.D10 = parseFloat(params.D10);
+
       if (params.D11) {
         params.D11 = parseFloat(params.D11);
       } else {
@@ -38,7 +39,12 @@ router.get("/", (req, res) => {
       } else {
         params.D12 = 0;
       }
-      params.D14 = parseInt(params.D14);
+      if (params.D13) {
+        params.D11 = parseFloat(params.D13);
+      } else {
+        params.D13 = 0;
+      }
+      params.D15 = parseInt(params.D15);
 
       console.table(params);
 
